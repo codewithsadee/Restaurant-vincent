@@ -192,10 +192,81 @@ header {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
+  background: url(./images/slide_1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
 }
 
-/* header responsive for 1200px */
+.imgBx img {
+  max-width: 600px;
+  filter: drop-shadow(5px 15px 20px #000000);
+  transform: rotate(0);
+  animation: imgrotate 5s linear infinite;
+}
+
+@keyframes imgrotate {
+  1% {
+    transform: rotate(5deg);
+  }
+  3% {
+    transform: rotate(-5deg);
+  }
+  5% {
+    transform: rotate(0);
+  }
+}
+
+.contentBx {
+  max-width: 700px;
+  margin-right: 50px;
+}
+
+.contentBx h1 {
+  font-size: 60px;
+  letter-spacing: 10px;
+  font-weight: 100;
+}
+
+.contentBx h2 {
+  font-size: 30px;
+  font-weight: 100;
+  letter-spacing: 5px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ffffff;
+  margin-bottom: 40px;
+}
+
+.contentBx p {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.contentBx .btn {
+  padding: 10px 20px;
+  background: #ffc851;
+  display: inline-block;
+  color: #000000;
+  cursor: pointer;
+  letter-spacing: 2px;
+  border: 2px solid #ffc851;
+  transition: .25s;
+}
+
+.contentBx .btn:hover {
+  background: transparent;
+  color: #ffc851;
+}
+
+/* responsive for 1200px */
 
 @media screen and (max-width: 1200px) {
   header {
@@ -204,9 +275,13 @@ main {
   .nav li {
     margin-right: 20px;
   }
+
+  .imgBx img {
+    max-width: 400px;
+  }
 }
 
-/* header responsive for 1200px */
+/* responsive for 1024px */
 @media screen and (max-width: 1024px) {
   header {
     padding-top: 30px;
@@ -218,6 +293,18 @@ main {
 
   .schedule, .cart {
     display: none;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .imgBx {
+    margin-bottom: 30px;
+  }
+  .contentBx {
+    margin-right: 0;
+    text-align: center;
   }
 }
 
@@ -264,4 +351,30 @@ main {
   .nav li a.active::after {
     display: none;
   }
+
+  main {
+    padding: 50px 40px;
+  }
+}
+
+/* responsive for 650px */
+
+@media screen and (max-width: 650px) {
+
+  main {
+    padding: 50px 20px;
+  }
+
+  .imgBx img {
+    max-width: 300px;
+  }
+
+  .contentBx h1 {
+    font-size: 40px;
+  }
+
+  .contentBx h2 {
+    font-size: 24px;
+  }
+
 }
