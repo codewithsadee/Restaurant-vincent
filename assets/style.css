@@ -1,0 +1,267 @@
+/* custom scrollbar design */
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* button */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0007; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0009; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0005; 
+}
+
+/* The track NOT covered by the handle.
+::-webkit-scrollbar-track-piece {
+  background: #000; 
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+/* Resizer */
+::-webkit-resizer {
+  background: #999; 
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 14px;
+  color: #dce4e8;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: relative;
+  background: #121618;
+  padding: 50px 90px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.schedule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.cart::after {
+  content: '0';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: #ffc851;
+  border-radius: 50%;
+  color: #121618;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.cart:hover .left .items {
+  opacity: 1;
+  color: #ffc851;
+}
+
+.schedule img, .logo img, .cart img {
+  display: block;
+}
+
+.schedule img {
+  max-width: 25px;
+  margin-right: 25px;
+}
+
+.right .phone,
+.left .amount {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.right .time,
+.left .items {
+  color: #dce4e8;
+  letter-spacing: 2px;
+  opacity: 0.5;
+  transition: .25s;
+}
+
+.logo img {
+  max-width: 180px;
+}
+
+.cart img {
+  max-width: 35px;
+  margin-left: 25px;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 98px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  margin: 5px;
+  transition: .25s;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav li {
+  list-style: none;
+  margin-right: 40px;
+}
+
+.nav li a {
+  position: relative;
+  text-decoration: none;
+  color: #dce4e8;
+  letter-spacing: 3px;
+  transition: .25s;
+  display: inline-block;
+}
+
+.nav li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 1px;
+  background: #dce4e8;
+}
+
+.nav li a:hover {
+  color: #ffc851;
+}
+
+main {
+  height: 100vh;
+}
+
+/* header responsive for 1200px */
+
+@media screen and (max-width: 1200px) {
+  header {
+    padding: 50px 40px;
+  }
+  .nav li {
+    margin-right: 20px;
+  }
+}
+
+/* header responsive for 1200px */
+@media screen and (max-width: 1024px) {
+  header {
+    padding-top: 30px;
+  }
+
+  .header-top {
+    justify-content: center;
+  }
+
+  .schedule, .cart {
+    display: none;
+  }
+}
+
+/* header responsive for 768px */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 60px 20px;
+  }
+  .nav {
+    display: none;
+  }
+  .header-top {
+    margin: 0;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(5px);
+  }
+
+  .menu-btn.active span:nth-child(2) {
+    display: none;
+  }
+
+  .menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-5px);
+  }
+
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 1px solid #dce4e89a;
+    margin-top: 40px;
+  }
+
+  .nav li {
+    margin-top: 20px;
+  }
+
+  .nav li a.active::after {
+    display: none;
+  }
+}
